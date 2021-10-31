@@ -16,15 +16,9 @@ class App extends Component {
 
     render() {
         return(
-            
             <div className="app">
-                <Board 
-                    getCurrentNotation={this.getCurrentNotation}
-                />
-
-                <RandomNotation
-                    currentNotation={this.state.currentNotation}
-                />
+                <Board getCurrentNotation={this.getCurrentNotation}/>
+                <RandomNotation currentNotation={this.state.currentNotation}/>
             </div>
         );
     }

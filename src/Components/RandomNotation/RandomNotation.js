@@ -12,7 +12,7 @@ class RandomNotation extends Component {
         }
     }
 
-    componentDidUpdate(prevrops, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         if (this.props.currentNotation === this.state.currentNotation) {
             this.changeNotation();
         } else if (prevState === this.state) {
@@ -47,13 +47,12 @@ class RandomNotation extends Component {
         return (
             <>
                 <h2>Please show on the board this combination: <span
-                                                                value={currentNotation}
-                                                                className={isWrongAnswer}
+                                                                    value={currentNotation}
+                                                                    className={isWrongAnswer}
                                                                 >{currentNotation}
-                                                            </span>
+                                                                </span>
                 </h2>
-                <h2>Number of correct answers: <span value={score}> {score} </span>
-                </h2>
+                <h2>Number of correct answers: <span value={score}> {score} </span></h2>
             </>
         );
     }
