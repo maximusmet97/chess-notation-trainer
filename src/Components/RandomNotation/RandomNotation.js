@@ -43,15 +43,12 @@ class RandomNotation extends Component {
     render() {
         const {currentNotation, isWrong, score} = this.state;
         const isWrongAnswer = isWrong ? "wrong" : null;
+        const phrase = isWrong ? "Wrong. Try again: " : 
+                                 "Please show on the board this combination: ";
 
         return (
             <>
-                <h2>Please show on the board this combination: <span
-                                                                    value={currentNotation}
-                                                                    className={isWrongAnswer}
-                                                                >{currentNotation}
-                                                                </span>
-                </h2>
+                <h2>{phrase}<span value={currentNotation} className={isWrongAnswer}>{currentNotation}</span></h2>
                 <h2>Number of correct answers: <span value={score}> {score} </span></h2>
             </>
         );
