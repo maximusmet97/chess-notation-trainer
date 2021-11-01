@@ -6,10 +6,26 @@ class RandomNotation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentNotation: this.getRandNotation(),
+            currentNotation: sessionStorage.getItem('currentNotation') === 'null' ? 
+                             this.getRandNotation() : 
+                             sessionStorage.getItem('currentNotation'),
             isWrong: false,
-            score: 0
+            score: isNaN(+sessionStorage.getItem('score')) ? 
+                   0 : 
+                   +sessionStorage.getItem('score')
         }
+    }
+
+    componentDidMount() {
+        this.setState({
+            currentNotation: sessionStorage.getItem('currentNotation') === 'null' ? 
+                             this.getRandNotation() : 
+                             sessionStorage.getItem('currentNotation'),
+            isWrong: false,
+            score: isNaN(+sessionStorage.getItem('score')) ? 
+                   0 : 
+                   +sessionStorage.getItem('score')
+        });
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -42,6 +58,8 @@ class RandomNotation extends Component {
 
     render() {
         const {currentNotation, isWrong, score} = this.state;
+        sessionStorage.setItem('score', score);
+        sessionStorage.setItem('currentNotation', currentNotation);
         const isWrongAnswer = isWrong ? "wrong" : null;
         const phrase = isWrong ? "Wrong. Try again: " : 
                                  "Please show on the board this combination: ";
