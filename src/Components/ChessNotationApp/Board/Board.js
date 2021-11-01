@@ -1,5 +1,5 @@
 import { Component } from "react";
-import NOTATION_ALPHA from "../../Common/CommonVars";
+import NOTATION_ALPHA from "../../../Common/CommonVars";
 import './Board.css';
 
 class Board extends Component {

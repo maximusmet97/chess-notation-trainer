@@ -1,6 +1,6 @@
 import { Component } from "react";
 import './RandomNotation.css';
-import NOTATION_ALPHA from "../../Common/CommonVars";
+import NOTATION_ALPHA from "../../../Common/CommonVars";
 
 class RandomNotation extends Component {
     constructor(props) {

@@ -1,27 +1,47 @@
-import { Component } from "react";
-import Board from "../Board/Board";
-import RandomNotation from "../RandomNotation/RandomNotation";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import BoardApp from "../ChessNotationApp/BoardApp/BoardApp";
+import SecondRoute from "../SecondRoute/SecondRoute";
+import ThirdRoute from "../ThirdRoute/ThirdRoute";
 
-class App extends Component {
+export default function App() {
 
-    state = {
-        currentNotation: ''
-    }
+    return (
+        <Router>
+          <div>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/notation">Chess Notation</Link>
+                </li>
+                <li>
+                  <Link to="/second">Second Page</Link>
+                </li>
+                <li>
+                  <Link to="/third">Third Page</Link>
+                </li>
+              </ul>
+            </nav>
 
-    getCurrentNotation = (notation) => {
-        this.setState({
-            currentNotation: notation
-        });
-    }
+            <Switch>
+              <Route path="/notation">
+                <BoardApp />
+              </Route>
+              <Route path="/second">
+                <SecondRoute />
+              </Route>
+              <Route path="/third">
+                <ThirdRoute />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      );
 
-    render() {
-        return(
-            <div className="app">
-                <Board getCurrentNotation={this.getCurrentNotation}/>
-                <RandomNotation currentNotation={this.state.currentNotation}/>
-            </div>
-        );
-    }
+
+
+    /*return(
+        <div className="app">
+            <BoardApp />
+        </div>
+    );*/
 }
-
-export default App;
