@@ -36,12 +36,4 @@ export default function App() {
           </div>
         </Router>
       );
-
-
-
-    /*return(
-        <div className="app">
-            <BoardApp />
-        </div>
-    );*/
 }
